@@ -1,0 +1,81 @@
+.region-list-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+
+}
+.region-list-title-petshop {
+  color: #ffb83d;
+}
+
+.region-list-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.region-section {
+  margin-bottom: 40px;
+}
+.region-content {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.region-prefecture-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+}
+
+.prefecture-button-list:hover {
+  cursor: pointer; /* カーソルを手形にする */
+  background-color: rgba(0, 0, 0, 0.2) ;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.prefecture-button-list {
+  display: inline-block;
+    padding: 0.75em 1em;
+    color: rgb(23, 23, 23);
+    border: none;
+    cursor: pointer;
+    margin: 8px;
+    width: 140px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: white;
+}
+
+@media (max-width: 480px) {
+
+  .hamburger-menu {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%; /* 必要に応じて調整 */
+    z-index: 1000; /* 他の要素より前面に表示 */
+  }
+
+  .region-search {
+    font-size: 24px;
+  }
+
+  .prefecture-list {
+    gap: 10px;
+  }
+
+  .prefecture-button-list {
+    padding: 8px 12px;
+    font-size: 15px;
+    margin: 10px;
+  }
+
+  .region-list-container {
+    margin: 60px auto;
+    max-width: 1200px;
+    padding: 20px;
+  
+  }
+}

@@ -1,0 +1,62 @@
+
+.region-list-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.region-list-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.region-section {
+  margin-bottom: 20px;
+}
+
+.region-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.prefecture-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.prefecture-button {
+  cursor: pointer; /* カーソルを手形にする */
+  padding: 10px 15px;
+  background-color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.prefecture-button:hover {
+  color: #4caf50;
+  background-color: #f9f9f9;
+}
+
+/* 星のスタイル */
+.star {
+  font-size: 24px;
+  color: gray; /* デフォルトの星の色 */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.star.selected {
+  color: gold; /* 選択された星の色 */
+  transition: color 0.3s ease; /* スムーズな色変更 */
+}
+
+@media (max-width: 480px) {
+
+  
+}

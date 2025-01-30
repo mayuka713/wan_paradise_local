@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "ES6",
+    "module": "esnext",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "*": ["node_modules/*"]
+    },
+    "lib": ["dom", "es6", "esnext"]
+  },
+  "include": ["./*", "context", "components/SroesList.tsx"],
+  "exclude": ["./dist"]
+}

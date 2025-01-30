@@ -1,0 +1,184 @@
+.body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans JP", serif;
+  background-color: #f9f9f9;
+}
+.content {
+  text-align: center;
+  font-family: "Noto Sans JP", serif;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+/* タイトル */
+.store-list {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.search-tags3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.petshop-tag-button {
+  display: inline-block;
+  color: #333;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 10px;
+}
+
+.petshop-tag-button:hover {
+  background-color: #f0f0f0;
+}
+
+.petshop-tag-button.selected {
+  color: rgb(0, 0, 0);
+  transform: scale(1.08);
+}
+
+/* ストア一覧 */
+.store-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+/* ストアカード */
+.store-item {
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 15px 0;
+  padding: 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.store-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.store-item p {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 20px;
+}
+
+.store-item img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+
+.store-discription {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.stars-background-storelist {
+  font-size: 1.2rem;
+  color: #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+/* 星評価の塗りつぶし（選択された星） */
+.stars-filled-storelist {
+  font-size: 1.2rem;
+  color: #FFD700;
+  position: absolute;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* 星評価全体のコンテナ */
+.star-rating-container {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 20px;
+}
+
+.average-rating-value-storelist {
+  font-size: 24px;
+  color: #333;
+  margin-left: 110px;
+  margin-top: 180px;
+}
+.store-name-storelist {
+  font-size: 20px;
+}
+@media (max-width: 480px) {
+  .store-item {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .star-container {
+    font-size: 20px;
+  }
+  .store-name {
+    font-size: 16px;
+  }
+  .star-rating-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+
+  .store-img {
+    height: 150px;
+  }
+  .tags-container {
+    gap: 5px;
+  }
+  .search-for-tags h3 {
+    font-size: 10px;
+    padding-right: 10px;
+  }
+  /* リンクのデフォルトスタイルをリセット */
+  a,
+  .Link {
+    text-decoration: none;
+    color: #333;
+  }
+  h2 {
+    font-size: 20px;
+  }
+
+  .search-tags {
+    font-size: 15px;
+  }
+  .tag-button {
+    margin-bottom: 10px;
+  }
+}

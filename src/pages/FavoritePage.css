@@ -1,0 +1,111 @@
+/* 共通スタイル */
+.favorite-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.favorite-main-title {
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 10px 20px; 
+  border-radius: 20px;
+  max-width: 80%;
+  word-break: keep-all; 
+  text-align: center; 
+  
+}
+.favorite-item img {
+  width: 450px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.favorite-list {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+}
+
+.favorite-item {
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 35px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-left: -50px;
+}
+
+.favorite-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
+.review-average-favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 25px;
+}
+
+.star {
+  font-size: 20px;
+  color: gray;
+  display: inline-block;
+}
+
+.star.selected {
+  color: gold;
+}
+
+
+@media (max-width: 480px) {
+  .favorite-container {
+    margin-top: 80px;
+    margin-bottom: 150px;
+  }
+
+  .favorite-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 100px;
+  }
+
+  .favorite-item {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .favorite-item-img {
+    width: 100%; /* 画面幅いっぱいに調整 */
+    max-width: 300px; /* 最大幅を設定 */
+    display: block;
+    margin: 0 20px -80px;
+  }
+
+  .favorite-main-title {
+    margin: 0 10px;
+    padding: 8px 10px;
+    font-size: 24px;
+    max-width: 100%;
+  }
+
+  .review-average-favorite {
+    font-size: 15px;
+    gap: 3px;
+  }
+
+  .star {
+    font-size: 16px;
+  }
+}

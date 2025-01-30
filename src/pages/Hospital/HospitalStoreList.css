@@ -1,0 +1,72 @@
+
+.searchHospital {
+  background-color: rgb(126, 178, 182);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.hospitalImg {
+  width: 80%;
+  margin-left: 40px;
+  margin-bottom: 50px;
+  margin-top: 180px;
+  transition: transform 0.3s ease;
+}
+
+
+.hospital-tag-button {
+
+  display: inline-block;
+  color: #333;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 10px;
+
+}
+
+.hospital-tag-button:hover {
+  background-color: #f0f0f0;
+}
+
+
+
+@media (max-width: 480px) {
+  .type5-tags {
+    gap: 8px;
+  }
+  .tag-button {
+    font-size: 12px;
+    padding: 8px 12px;
+    margin: 4px;
+  }
+
+  .searchHospital {
+    background-color: rgb(215, 217, 217);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    margin-left: 78px;
+    margin-top: 180px;
+    margin-bottom: 50px;
+    padding: 17px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hospital-image {
+    width: 80%;
+    margin-left: 40px;
+  }
+}

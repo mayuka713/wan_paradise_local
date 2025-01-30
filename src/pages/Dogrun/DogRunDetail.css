@@ -1,0 +1,187 @@
+.detail-container {
+  max-width: 800px;
+  /* 最大幅を指定 */
+  margin: 0 auto;
+  /* 中央配置 */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.detail-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+
+/* 店舗画像のスタイル */
+.container img {
+  width: 100%;
+  margin: 10px 0;
+}
+
+/* Google Map埋め込みスタイル */
+.container iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* テキスト情報のスタイル */
+.container p {
+  margin: 10px 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.container p strong {
+  font-weight: bold;
+  color: #333;
+}
+
+.favorite-button {
+  padding: 30px 20px;
+  font-size: 14px;
+  border: none;
+  background-color: #f4932b;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: background-color 0.3s;
+}
+
+.favorite-button.active {
+  background-color: #fffc49;
+}
+
+
+/* 星のスタイル */
+.star {
+  font-size: 24px;
+  /* 星の大きさ */
+  color: gray;
+  /* デフォルトの星の色 */
+  margin: 0 2px;
+  /* 星の間隔 */
+  display: inline-block;
+  transition: color 0.3s ease;
+  /* 色変更のスムーズなアニメーション */
+}
+
+.star.selected {
+  color: gold;
+}
+
+
+/* 口コミリンク */
+.review-button-detail {
+  display: flex;
+  /* フレックスボックスで配置 */
+  justify-content: center;
+  /* 水平方向の中央揃え */
+  align-items: center;
+  /* 垂直方向の中央揃え */
+  font-size: 13px;
+  color: #000;
+  /* テキストの色を黒に */
+  background-color: #fff;
+  /* 背景色を白に */
+  border: 1px solid #000;
+  /* 外枠を黒に設定 */
+  border-radius: 5px;
+  /* 角丸 */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  margin-top: 30px;
+  font-weight: bold;
+  padding: 13px 30px;
+  box-sizing: border-box;
+  /* パディングを含む幅計算 */
+}
+
+.review-button:hover {
+  background-color: #f0f0f0;
+  /* ホバー時に少しグレーに */
+  transform: scale(1.05);
+  /* ホバー時に拡大 */
+}
+
+.container .link:hover {
+  background-color: #aaa;
+}
+
+/* 店舗公式サイトリンク */
+.official-site {
+  color: black;
+}
+
+.container a:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+/* スライダー全体 */
+.image-slider {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 各スライド */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.slide.active {
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .detail-container {
+    max-width: 100%;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .detail-title {
+    font-size: 20px;
+    margin-top: 80px;
+  }
+
+  .favorite-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .official-site.review-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  iframe {
+    height: 250px;
+  }
+
+  .review-button-detail {
+    width: 40%;
+    height: 40px;
+    font-size: 11px;
+    height: 40px;
+  }
+}

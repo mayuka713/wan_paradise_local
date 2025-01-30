@@ -1,0 +1,87 @@
+/* コンテンツ全体 */
+.content {
+  padding: 20px;
+ font-family:Arial, Helvetica, sans-serif;
+ background-color: #f9f9f9;
+}
+
+.store-list {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.dogcafe-title {
+  color: #cba35c;
+}
+
+.type3-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 9px;
+}
+.dogcafe-tag-button {
+  display: inline-block;
+  color: #333;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.dogcafe-tag-button.selected {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 480px) {
+  .store-item {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .star-container {
+    margin-top: 80px;
+  }
+  .store-name-dogrun {
+    font-size: 16px;
+    margin-top: 80px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+
+  .search-for-tags h3 {
+    font-size: 10px;
+    padding-right: 10px;
+  }
+  /* リンクのデフォルトスタイルをリセット */
+  a,
+  .Link {
+    text-decoration: none;
+    color: #333;
+  }
+  h2 {
+    font-size: 20px;
+  }
+
+  .search-tags {
+    font-size: 15px;
+  }
+  
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .type3-tags {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

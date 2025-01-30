@@ -1,0 +1,159 @@
+.body {
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  overflow: hidden;
+}
+
+/* コンテナのスタイル */
+.dogcafe-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 20px 80px 20px;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.search-dogcafe {
+    background-color: #CBA35C;
+    color: #fff;
+    border-radius: 40px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    padding: 82px;
+    margin: -30px 106px 0 100px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-size: 16px;
+    max-width: 80%; /* ボタンの最大幅を設定 */
+    word-break: keep-all;
+}
+
+
+.search-dogcafe:hover {
+  transform: scale(1.05);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dogcafe-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: -60px;
+}
+
+.store-slider-container {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+.store-card {
+  font-size: 20px;
+  background-color: #fefdf6;
+  border: 1px;
+  border-radius: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 0 0 auto; /* 子要素の幅を固定し横並び */
+  margin: 20px 10px; /* カード間のスペース */
+  width: 300px; /* 各カードの幅を指定 */
+  text-align: center; /* 中央揃え */
+}
+
+
+.store-card img {
+  border-radius: 10%; /* 画像を丸くする */
+  width: 200px; /* 画像の幅を調整 */
+  height: 200px; /* 画像の高さを調整して正方形に */
+  object-fit: cover; /* 画像の切り取りを中央に */
+  margin: 10px auto; /* 画像の上下中央寄せ */
+  display: block; /* ブロック要素として中央寄せにする */
+}
+
+/* store-list のスタイル */
+.top-store-list {
+  display: flex; /* 横並び */
+  flex-wrap: nowrap; /* 折り返しを防ぐ */
+  overflow: hidden; /* コンテナ外を非表示 */
+  white-space: nowrap; /* 子要素を1行で配置 */
+  animation: scroll-loop 30s linear infinite; /* アニメーション設定 */
+}
+
+.slider-store-name {
+  font-size: 18px;
+}
+
+/* アニメーション定義 */
+@keyframes scroll-loop {
+  0% {
+    transform: translateX(0); /* 初期位置 */
+  }
+  100% {
+    transform: translateX(-100%); /* calc()を使用して正しく計算 */
+  }
+}
+
+
+@media (max-width:480px) {
+  /* コンテナのスタイル */
+.dogcafe-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+  .search-dogcafe {
+    background-color: #CBA35C;
+    color: #fff;
+    border-radius: 40px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    padding: 55px;
+    margin: 20px -44px 92px -40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-size: 16px;
+  }
+  
+
+  .search-dogcafe:hover {
+    transform: scale(1.05);
+  }
+  .dogcafe-image {
+    max-width: 170%;
+    display: block;
+  }
+  .store-card {
+    margin-top: 30px;
+    width: 250px;
+    height: 235px;
+  } 
+  .store-card img{
+    width: 200px;
+    height: 95px;
+    border-radius: 10px;
+  }
+  .slider-store-name {
+  font-size: 13px;
+  }
+  .slider-prefecture-name {
+    font-size: 18px;
+  }
+  .dogcafe-page-container {
+    margin: 0 auto;
+    max-width: 1200px;
+  
+}
+
+}

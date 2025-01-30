@@ -1,0 +1,84 @@
+/* スライダーのコンテナ */
+.image-slider-container-dogrun {
+  position: relative; /* これを追加 */
+  width: 100%;
+  max-width: 1000px; /* 画像を大きくするため調整 */
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 画像のコンテナ */
+.image-dogrun {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* スライドする画像 */
+.slider-image {
+  width: 100%; /* スライダーいっぱいに広げる */
+  height: auto;
+  max-height: 500px; /* 画像を大きくする */
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* 矢印ボタン */
+.arrow-button {
+  position: absolute; /* 画像の左右に配置 */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 24px;
+  height: 50px;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* 左矢印の位置 */
+.left-arrow {
+  left: 10px;
+}
+
+/* 右矢印の位置 */
+.right-arrow {
+  right: 10px;
+}
+.slider-image {
+  width: 100%; /* 親要素の幅いっぱいにする */
+  height: 250px; /* すべての画像を同じ高さに固定 */
+  object-fit: cover; /* 縦横比を維持しつつトリミング */
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* スマホ用レスポンシブ */
+@media (max-width: 480px) {
+  .image-slider-container-dogrun {
+    max-width: 100%;
+  }
+
+  .slider-image {
+    max-height: 300px; /* スマホでは高さを制限 */
+  }
+
+  .left-arrow {
+    left: 5px;
+  }
+
+  .right-arrow {
+    right: 5px;
+  }
+
+}

@@ -1,0 +1,98 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+.titleName {
+  text-align: center;
+  font-size: 20px;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.star.selected {
+  color: gold;
+}
+
+.comment-container {
+  margin-top: 10px;
+}
+
+.comment-textarea {
+  width: 100%;
+  height: 80px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+* 投稿ボタン */
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #f4932b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #d67b1e;
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 90%;
+    max-width: 320px;
+    padding: 15px;
+  }
+  .close {
+    font-size: 20px;
+    top: 8px;
+    right: 10px;
+  }
+  .star {
+    font-size: 24px;
+  }
+  .comment-textarea {
+    height: 60px;
+  }
+  .submit-button {
+    font-size: 14px; /* ボタンの文字を小さく */
+    padding: 8px;
+  }
+}

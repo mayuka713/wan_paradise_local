@@ -1,0 +1,148 @@
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+/* ヘッダー */
+.App-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-link {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+
+.header-link:hover {
+  color: rgba(0, 0, 0, 0.5); 
+  text-decoration: none;
+}
+
+
+ul {
+  list-style: none;
+}
+.header-nav a {
+  color: #333; /* テキスト色を変更 */
+  margin: 0 15px; /* 間隔を設定 */
+  font-size: 14px; /* フォントサイズ */
+  font-weight: bold; /* 太字 */
+  transition: color 0.3s ease; /* ホバー時のアニメーション */
+  text-decoration: none;
+}
+.header-nav a:hover {
+  color: rgba(0, 0, 0, 0.5); ;
+  text-decoration: none;
+}
+.App-header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+/* 各セクション */
+.info-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+  gap: 20px;
+}
+
+.info-section.reverse {
+  flex-direction: row-reverse;
+}
+
+/* 画像とネームタグ */
+.image-container-dogrun {
+  position: relative;
+  text-align: center;
+}
+
+.top-image {
+  width: 200px;
+  height: auto;
+}
+
+.image-container img:first-child {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: auto;
+  z-index: 2;
+}
+
+/* フッター */
+.footer {
+  font-size: 0.9rem;
+  color: #000;
+  padding: 20px 0;
+  border-bottom: #000;
+}
+
+@media (min-width: 481px) {
+  /* 通常ヘッダーのナビを表示 */
+  .header-nav {
+    display: block;
+  }
+
+  /* ハンバーガーメニューを非表示 */
+  .hamburger-menu {
+    display: none;
+  }
+}
+/* レスポンシブ対応 */
+@media (max-width: 480px) {
+
+  .info-section {
+    flex-direction: column;
+  }
+
+  .top-image {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .image-container img:first-child {
+    top: -15px;
+    width: 120px;
+  }
+  .App-header {
+    width: 100%;       /* ヘッダーを幅いっぱいにする */
+    z-index: 100;     /* ほかの要素より前面に配置 */
+    background-color: #ffffff;
+    text-align: center;
+    position: fixed;
+  }
+  .App-header h1 {
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-bottom: auto;
+    text-align: center;
+  }
+  .header-nav {
+    display: none;
+  }
+
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    text-align: center;
+  }

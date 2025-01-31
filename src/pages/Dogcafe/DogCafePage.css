@@ -30,7 +30,7 @@
     padding-bottom: 20px;
     padding-top: 20px;
     font-size: 16px;
-    max-width: 80%; /* ボタンの最大幅を設定 */
+    max-width: 80%;
     word-break: keep-all;
 }
 
@@ -59,17 +59,17 @@
   border: 1px;
   border-radius: 30px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  flex: 0 0 auto; /* 子要素の幅を固定し横並び */
+  flex: 0 0 auto; /* 子要素の幅を固定し横並びにする*/
   margin: 20px 10px; /* カード間のスペース */
   width: 300px; /* 各カードの幅を指定 */
-  text-align: center; /* 中央揃え */
+  text-align: center;
 }
 
 
 .store-card img {
-  border-radius: 10%; /* 画像を丸くする */
-  width: 200px; /* 画像の幅を調整 */
-  height: 200px; /* 画像の高さを調整して正方形に */
+  border-radius: 10%;
+  width: 200px; 
+  height: 200px; 
   object-fit: cover; /* 画像の切り取りを中央に */
   margin: 10px auto; /* 画像の上下中央寄せ */
   display: block; /* ブロック要素として中央寄せにする */
@@ -77,7 +77,7 @@
 
 /* store-list のスタイル */
 .top-store-list {
-  display: flex; /* 横並び */
+  display: flex; 
   flex-wrap: nowrap; /* 折り返しを防ぐ */
   overflow: hidden; /* コンテナ外を非表示 */
   white-space: nowrap; /* 子要素を1行で配置 */

@@ -4,6 +4,7 @@
   font-family: "Noto Sans JP", serif;
   background-color: #f9f9f9;
 }
+
 .content {
   text-align: center;
   font-family: "Noto Sans JP", serif;
@@ -11,7 +12,7 @@
   background-color: #ffffff;
 }
 
-/* タイトル */
+
 .store-list {
   font-weight: bold;
   font-size: 24px;
@@ -51,7 +52,7 @@
   transform: scale(1.08);
 }
 
-/* ストア一覧 */
+
 .store-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -59,7 +60,7 @@
   padding: 30px;
 }
 
-/* ストアカード */
+
 .store-item {
   display: block;
   border: 1px solid #ddd;
@@ -107,7 +108,7 @@
   z-index: 0;
 }
 
-/* 星評価の塗りつぶし（選択された星） */
+
 .stars-filled-storelist {
   font-size: 1.2rem;
   color: #FFD700;
@@ -118,7 +119,7 @@
   z-index: 1;
 }
 
-/* 星評価全体のコンテナ */
+
 .star-rating-container {
   position: relative;
   display: inline-block;
@@ -132,9 +133,11 @@
   margin-left: 110px;
   margin-top: 180px;
 }
+
 .store-name-storelist {
   font-size: 20px;
 }
+
 @media (max-width: 480px) {
   .store-item {
     width: 90%;
@@ -144,9 +147,11 @@
   .star-container {
     font-size: 20px;
   }
+
   .store-name {
     font-size: 16px;
   }
+
   .star-rating-container {
     display: flex;
     align-items: center;
@@ -158,19 +163,22 @@
   .store-img {
     height: 150px;
   }
+
   .tags-container {
     gap: 5px;
   }
+
   .search-for-tags h3 {
     font-size: 10px;
     padding-right: 10px;
   }
-  /* リンクのデフォルトスタイルをリセット */
+
   a,
   .Link {
     text-decoration: none;
     color: #333;
   }
+
   h2 {
     font-size: 20px;
   }
@@ -178,6 +186,7 @@
   .search-tags {
     font-size: 15px;
   }
+
   .tag-button {
     margin-bottom: 10px;
   }

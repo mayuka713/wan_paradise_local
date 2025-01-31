@@ -29,7 +29,7 @@
   padding-bottom: 20px;
   padding-top: 20px;
   font-size: 16px;
-  max-width: 80%; /* ボタンの最大幅を設定 */
+  max-width: 80%; 
   word-break: keep-all;
 }
 
@@ -57,10 +57,10 @@
   border: 1px;
   border-radius: 30px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  flex: 0 0 auto; /* 子要素の幅を固定し横並び */
-  margin: 0 10px; /* カード間のスペース */
-  width: 300px; /* 各カードの幅を指定 */
-  text-align: center; /* 中央揃え */
+  flex: 0 0 auto; 
+  margin: 0 10px; 
+  width: 300px; 
+  text-align: center; 
 }
 
 .store-card img {
@@ -72,7 +72,7 @@
   display: block;
 }
 
-/* store-list のスタイル */
+
 .top-store-list {
   display: flex;
   flex-wrap: nowrap;
@@ -86,16 +86,14 @@
   font-size: 17px;
 }
 
-/* アニメーション定義 */
+
 @keyframes scroll-loop {
   0% {
     transform: translateX(0);
-    /* 初期位置 */
   }
 
   100% {
     transform: translateX(-100%);
-    /* calc()を使用して正しく計算 */
   }
 }
 

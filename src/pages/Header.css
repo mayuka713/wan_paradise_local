@@ -5,7 +5,6 @@ body {
   background-color: #f9f9f9;
 }
 
-/* ヘッダー */
 .App-header {
   display: flex;
   justify-content: space-between;
@@ -38,11 +37,11 @@ ul {
   list-style: none;
 }
 .header-nav a {
-  color: #333; /* テキスト色を変更 */
-  margin: 0 15px; /* 間隔を設定 */
-  font-size: 14px; /* フォントサイズ */
-  font-weight: bold; /* 太字 */
-  transition: color 0.3s ease; /* ホバー時のアニメーション */
+  color: #333; 
+  margin: 0 15px; 
+  font-size: 14px; 
+  font-weight: bold; 
+  transition: color 0.3s ease; 
   text-decoration: none;
 }
 .header-nav a:hover {
@@ -54,7 +53,7 @@ ul {
   color: #333;
 }
 
-/* 各セクション */
+
 .info-section {
   display: flex;
   justify-content: center;
@@ -67,7 +66,7 @@ ul {
   flex-direction: row-reverse;
 }
 
-/* 画像とネームタグ */
+
 .image-container-dogrun {
   position: relative;
   text-align: center;
@@ -88,7 +87,7 @@ ul {
   z-index: 2;
 }
 
-/* フッター */
+
 .footer {
   font-size: 0.9rem;
   color: #000;
@@ -97,17 +96,14 @@ ul {
 }
 
 @media (min-width: 481px) {
-  /* 通常ヘッダーのナビを表示 */
   .header-nav {
     display: block;
   }
 
-  /* ハンバーガーメニューを非表示 */
   .hamburger-menu {
     display: none;
   }
 }
-/* レスポンシブ対応 */
 @media (max-width: 480px) {
 
   .info-section {
@@ -124,8 +120,8 @@ ul {
     width: 120px;
   }
   .App-header {
-    width: 100%;       /* ヘッダーを幅いっぱいにする */
-    z-index: 100;     /* ほかの要素より前面に配置 */
+    width: 100%;       
+    z-index: 100;  
     background-color: #ffffff;
     text-align: center;
     position: fixed;

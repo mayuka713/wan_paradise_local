@@ -15,7 +15,7 @@
 }
 .main-title.show {
   opacity: 1;
-  transform: translateY(0); /* 元の位置に戻る */
+  transform: translateY(0); 
 }
 
 .scroll-container {
@@ -33,12 +33,12 @@
 }
 
 .scroll-content {
-  flex: 0 0 25%; /* 各セクションの幅を均等に調整 */
+  flex: 0 0 25%; 
   text-align: center;
   margin-top: -70px;
 }
 .item {
-  margin: 0 50px; /*左右の余白はここを調整*/
+  margin: 0 50px;
   text-align: center;
   line-height: 200px;
   font-size: 24px;
@@ -50,7 +50,7 @@
 }
 
 .hospital-item {
-  margin: 0 50px; /*左右の余白はここを調整*/
+  margin: 0 50px; 
   text-align: center;
   line-height: 200px;
   font-size: 24px;
@@ -70,7 +70,7 @@
 
 .main__action.show {
   opacity: 1;
-  transform: translateY(0); /* 元の位置に戻す */
+  transform: translateY(0); 
 }
 
 
@@ -83,7 +83,7 @@
   }
 }
 
-/* バウンスエフェクト */
+
 @keyframes bounce {
   0% {
     transform: translateY(0);
@@ -118,7 +118,7 @@
   transition: transform 0.8s ease-out;
 }
 
-/* フッター */
+
 .footer {
   font-size: 0.9rem;
   color: #000;
@@ -126,7 +126,7 @@
   border-bottom: #000;
 }
 
-/* フェードインアニメーション */
+
 .fade-in {
   opacity: 0;
   transform: translateY(0);
@@ -138,19 +138,18 @@
   transform: translateY(0);
 }
 
-/* レスポンシブ対応 */
+
 @media (max-width: 480px) {
 
-/* Scrollボタンのスタイル */
 .main__action {
   opacity: 0;
-  transform: translateY(20px); /* 下に隠しておく */
+  transform: translateY(20px); 
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .main__action.show {
   opacity: 1;
-  transform: translateY(0); /* 元の位置に戻る */
+  transform: translateY(0);
 }
   .scroll-content {
     display: flex;
@@ -158,14 +157,14 @@
     animation: none;
     align-items: center;
   }
-  /* 2セット目以降を非表示にする */
+  
   .scroll-content:nth-child(2) {
-    display: none; /* 2つ目のスクロールコンテンツを非表示 */
+    display: none; 
   }
   .item {
-    width: 100%; /* 画像の幅を親要素に合わせる */
-    max-width: 300px; /* 必要に応じて最大幅を調整 */
-    margin: 0 auto; /* 水平方向の中央揃え */
+    width: 100%; 
+    max-width: 300px; 
+    margin: 0 auto; 
   }
   .item-nametag{
     margin-left: 50px;

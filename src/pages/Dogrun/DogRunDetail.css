@@ -1,8 +1,6 @@
 .detail-container {
   max-width: 800px;
-  /* 最大幅を指定 */
   margin: 0 auto;
-  /* 中央配置 */
   padding: 20px;
   border-radius: 8px;
 }
@@ -62,14 +60,10 @@
 /* 星のスタイル */
 .star {
   font-size: 24px;
-  /* 星の大きさ */
   color: gray;
-  /* デフォルトの星の色 */
   margin: 0 2px;
-  /* 星の間隔 */
   display: inline-block;
   transition: color 0.3s ease;
-  /* 色変更のスムーズなアニメーション */
 }
 
 .star.selected {
@@ -80,41 +74,30 @@
 /* 口コミリンク */
 .review-button-detail {
   display: flex;
-  /* フレックスボックスで配置 */
   justify-content: center;
-  /* 水平方向の中央揃え */
   align-items: center;
-  /* 垂直方向の中央揃え */
   font-size: 13px;
   color: #000;
-  /* テキストの色を黒に */
   background-color: #fff;
-  /* 背景色を白に */
   border: 1px solid #000;
-  /* 外枠を黒に設定 */
   border-radius: 5px;
-  /* 角丸 */
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
   margin-top: 30px;
   font-weight: bold;
   padding: 13px 30px;
   box-sizing: border-box;
-  /* パディングを含む幅計算 */
 }
 
 .review-button:hover {
   background-color: #f0f0f0;
-  /* ホバー時に少しグレーに */
   transform: scale(1.05);
-  /* ホバー時に拡大 */
 }
 
 .container .link:hover {
   background-color: #aaa;
 }
 
-/* 店舗公式サイトリンク */
 .official-site {
   color: black;
 }
@@ -124,7 +107,7 @@
   transform: scale(1.05);
 }
 
-/* スライダー全体 */
+
 .image-slider {
   position: relative;
   width: 100%;

@@ -1,4 +1,3 @@
-/* ページ全体の設定 */
 .body {
   margin: 0;
   padding: 0;
@@ -10,7 +9,6 @@
   overflow-x: hidden;
 }
 
-/* コンテナのスタイル */
 .dogrun-page-container {
   display: flex;
   flex-direction: column;
@@ -22,7 +20,6 @@
   overflow: hidden;
 }
 
-/* 見出し・リンクのスタイル */
 .search-dogrun {
   background-color: #1db954;
   color: #fff;
@@ -37,7 +34,7 @@
   word-break: keep-all;
 }
 
-/* スライダーコンテナ */
+
 .store-slider-container {
   position: relative;
   width: 100%;
@@ -46,21 +43,21 @@
   margin-top: 40px;
 }
 
-/* スライダーのトラック */
+
 .dogrun-slider {
   display: flex;
   white-space: nowrap;
-  transform: translateX(0); /* 初期位置 */
+  transform: translateX(0); 
 }
 
-/* 各店舗カード */
+
 .store-card {
   font-size: 20px;
   background-color: #fefdf6;
   border: 1px solid #ddd;
   border-radius: 30px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  flex: 0 0 300px; /* 固定幅 */
+  flex: 0 0 300px; 
   margin: 10px;
   text-align: center;
   cursor: pointer;
@@ -75,13 +72,13 @@
 }
 
 
-/* アニメーション定義 */
+
 @keyframes scroll-loop {
   0% {
-    transform: translateX(0); /* 初期位置 */
+    transform: translateX(0); 
   }
   100% {
-    transform: translate(-100%); /* calc()を使用して正しく計算 */
+    transform: translate(-100%); 
   }
 }
 
@@ -89,7 +86,7 @@
 
 @media (max-width:480px) {
   
-/* コンテナのスタイル */
+
 .dogrun-page-container {
   display: flex;
   flex-direction: column;

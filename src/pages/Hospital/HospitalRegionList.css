@@ -30,7 +30,7 @@
 }
 
 .prefecture-button {
-  cursor: pointer; /* カーソルを手形にする */
+  cursor: pointer; 
   padding: 10px 15px;
   background-color: white;
   border: none;

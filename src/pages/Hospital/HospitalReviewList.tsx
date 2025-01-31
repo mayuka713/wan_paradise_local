@@ -114,7 +114,7 @@ const HospitalReviewList: React.FC = () => {
           <div
             className="review-star-filled"
             style={{
-               width: `${(averageRating /  5) * 100}%` }}
+               width: `${(averageRating / 5) * 100}%` }}
           >
             ★★★★★
           </div>

@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.43e56c73.css",
-    "main.js": "/static/js/main.3a3dc4f4.js",
-    "static/js/453.ed3810f9.chunk.js": "/static/js/453.ed3810f9.chunk.js",
-    "static/media/dogcafe.png": "/static/media/dogcafe.3185b8683ea3a9da8125.png",
-    "static/media/hospital.png": "/static/media/hospital.475c1a6ac1d909a7699d.png",
-    "static/media/petshop.png": "/static/media/petshop.def3f24659a5942e6c18.png",
-    "static/media/dogrun.png": "/static/media/dogrun.18d45e110f1329cefaf1.png",
+    "main.css": "/static/css/main.b6ae80ac.css",
+    "main.js": "/static/js/main.ee4bcaea.js",
+    "static/media/dogcafe.top.png": "/static/media/dogcafe.top.5abcf36a80dcc439cb21.png",
+    "static/media/hospital.png": "/static/media/hospital.b2a3c833105b9acf7143.png",
+    "static/media/petshop.top.png": "/static/media/petshop.top.97202074b00e039d40d6.png",
+    "static/media/dogrun.top.png": "/static/media/dogrun.top.26cd4f663d68f30c18c3.png",
     "index.html": "/index.html",
-    "main.43e56c73.css.map": "/static/css/main.43e56c73.css.map",
-    "main.3a3dc4f4.js.map": "/static/js/main.3a3dc4f4.js.map",
-    "453.ed3810f9.chunk.js.map": "/static/js/453.ed3810f9.chunk.js.map"
+    "main.b6ae80ac.css.map": "/static/css/main.b6ae80ac.css.map",
+    "main.ee4bcaea.js.map": "/static/js/main.ee4bcaea.js.map"
   },
   "entrypoints": [
-    "static/css/main.43e56c73.css",
-    "static/js/main.3a3dc4f4.js"
+    "static/css/main.b6ae80ac.css",
+    "static/js/main.ee4bcaea.js"
   ]
 }

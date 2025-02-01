@@ -6,19 +6,18 @@ function Login() {
     var _a = useState(""), email = _a[0], setEmail = _a[1];
     var _b = useState(""), password = _b[0], setPassword = _b[1];
     var _c = useState(""), errorMessage = _c[0], setErrorMessage = _c[1];
-    var navigate = useNavigate(); //useNavigateを定義
+    var navigate = useNavigate(); 
     //フォーム送信時の処理
     var handleSubmit = function (e) {
-        e.preventDefault(); //ページのロードを防ぐ
-        //デモ用のログイン情報
+        e.preventDefault();
         var correctEmail = "example@example.com";
         var correctPassword = "password123";
         // ログイン情報の検証
         if (email === correctEmail && password === correctPassword) {
             // ログイン成功時の処理
             alert("ログイン成功！");
-            setErrorMessage(""); // エラーメッセージをクリア
-            navigate("/home"); // ログイン成功後にホームページにリダイレクト
+            setErrorMessage(""); 
+            navigate("/home"); 
         }
         else {
             setErrorMessage("メールアドレスまたはパスワードが間違っています。");
@@ -39,7 +38,7 @@ function Login() {
           <button type="submit">ログイン</button>
           <p>初めてご利用の方</p>
           <button type="button" onClick={function () {
-            navigate("/register"); //新規会員登録ページに推移
+            navigate("/register");
         }}>
             新規会員登録
           </button>

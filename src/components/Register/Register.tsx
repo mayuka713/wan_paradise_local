@@ -48,7 +48,7 @@ function Register(): JSX.Element {
   return (
     <div className="register-container">
       <header className="register">
-        <h1>wan paradise</h1>
+        <h1 className="new-register">wan paradise</h1>
         <h2>新規会員登録</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">

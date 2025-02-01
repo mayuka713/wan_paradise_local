@@ -33,3 +33,11 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+
+@media (max-width: 480px ) { 
+  .new-register {
+    text-align: center;
+    font-size: 30px;
+  }
+  
+}

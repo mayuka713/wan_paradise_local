@@ -35,6 +35,7 @@ function Login(): JSX.Element {
   return (
     <div className="login-container">
       <header className="login">
+        <p className="login-title">全国のドッグラン、ドッグカフェ、ペットショップ、動物病院を紹介しています!</p>
         <h1>wan paradise</h1>
         <h2>ログイン</h2>
         <form onSubmit={handleSubmit}>

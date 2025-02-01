@@ -63,10 +63,10 @@ function Login(): JSX.Element {
               aria-label="パスワード"
             />
           </div>
-          <button type="submit">ログイン</button>
+          <button type="submit" className="login-button">ログイン</button>
           <p>初めてご利用の方</p>
           <button
-            type="button"
+            type="button" className="new-register-button"
             onClick={() => {
               navigate("/register");
             }} >

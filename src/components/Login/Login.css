@@ -1,5 +1,3 @@
-
-
 .login-container {
   display: flex;
   flex-direction: column;
@@ -8,11 +6,6 @@
   height: 100vh;
   background-color: #f7f7f7;
   font-family: Zen Kaku Gothic New;
-}
-.login header {
-  text-align: center;
-  margin-bottom: 20px;
-  border-top: #f7f7f7;
 }
 
 .login h1 {
@@ -29,6 +22,12 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+input[type="name"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%
 }
 
 input[type="email"] {
@@ -49,10 +48,15 @@ button[type="submit"] {
   margin-bottom: 20px;
   border-radius: 30px;
   cursor: pointer;
+  border: 2px solid #444;
 }
 
 button[type="submit"]:hover {
   background-color: #ffff;
+}
+
+.new-register-button {
+  padding: 8px 25px;
 }
 
 
@@ -64,5 +68,5 @@ button[type="submit"]:hover {
     display: flex;
     margin: 14px;
   }
-  
+
 }

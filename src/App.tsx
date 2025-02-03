@@ -7,6 +7,7 @@ import FavoritePage from "./pages/FavoritePage";
 import { FavoriteProvider } from "./context/FavoriteContext";
 import { ModalProvider } from "./context/ModalContext";
 import HamburgerMenu from "./HamburgerMenu";
+import MyPage from "./pages/MyPage";
 
 // ドッグランのページ
 import DogRunPage from "./pages/Dogrun/DogRunPage";
@@ -36,7 +37,6 @@ import HospitalStoreList from "./pages/Hospital/HospitalStoreList";
 import HospitalDetail from "./pages/Hospital/HospitalDetail";
 import HospitalReview from "./pages/Hospital/HospitalReviewList";
 
-// ✅ 修正: `Layout` コンポーネントを作成
 const Layout = () => {
   const location = useLocation();
   const isAuthPage = location.pathname === "/" || location.pathname === "/register";
@@ -81,18 +81,20 @@ const Layout = () => {
         <Route path="/hospital/:prefectureId" element={<HospitalStoreList />} />
         <Route path="/hospital/detail/:id" element={<HospitalDetail />} />
         <Route path="/hospital/reviews/:storeId" element={<HospitalReview />} />
+
+        <Route path="/mypage" element = {<MyPage/>} />
       </Routes>
     </>
   );
 };
 
-// ✅ 修正: `App.tsx` の `Router` を適切に配置
+
 const App: React.FC = () => {
   return (
     <ModalProvider>
       <FavoriteProvider>
         <Router>
-          <Layout /> {/* `Router` 内で `Layout` を使用 */}
+          <Layout /> 
         </Router>
       </FavoriteProvider>
     </ModalProvider>

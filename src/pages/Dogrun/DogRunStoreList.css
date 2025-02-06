@@ -139,8 +139,9 @@
 @media (max-width: 480px) {
   
   .title {
-    font-size: 18px;
+    font-size: 26px;
     text-align: center;
+    margin-top: 60px;
   }
 
   .search-tags,
@@ -179,11 +180,11 @@
 
   .stars-background-storelist,
   .stars-filled-storelist {
-    margin-left: 110px;
+    margin-left: 95px;
   }
   
   .average-rating-value-storelist {
-    padding-left: 250px;
+    padding-left: 230px;
     margin-bottom: 170px;
   }
   

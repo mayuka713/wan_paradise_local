@@ -21,8 +21,7 @@ label {
 
 input {
   width: 100%;
-  padding: 0.5em;
-  box-sizing: border-box;
+  padding: 10px;
 }
 
 .login-button {

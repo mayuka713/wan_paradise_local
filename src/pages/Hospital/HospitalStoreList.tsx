@@ -66,19 +66,23 @@ const HospitalStoreList: React.FC = () => {
     };
     setSelectedPrefecture(prefectureNames[prefectureId ?? ""] || "動物病院の情報がありません");
   }, [prefectureId]);
-
-//タグ選択の処理
   const handleTagClick = (tagId: number) => {
-    setSelectedTagIds((prev) =>
-      prev.includes(tagId) ? prev.filter((id) => id !== tagId) : [...prev,tagId]);
+    setSelectedTagIds((prev) => {
+      const updated = prev.includes(tagId)
+        ? prev.filter((id) => id !== tagId)
+        : [...prev, tagId];
+      console.log("選択されたタグID:", updated); // デバッグ用
+      return updated;
+    });
   };
+  
 
 // 店舗データの関数
     const fetchStores = async () => {
       try {
         let url = `${process.env.REACT_APP_BASE_URL}/stores/list/${prefectureId}/4`;
         if (selectedTagIds.length > 0) {
-          url = `${process.env.REACT_APP_BASE_URL}stores/list/tag/${prefectureId}/4?tagIds=${selectedTagIds.join(",")}`;
+          url = `${process.env.REACT_APP_BASE_URL}/stores/list/tag/${prefectureId}/4?tagIds=${selectedTagIds.join(",")}`;
         }
         const response = await fetch(url);
         if (!response.ok) {

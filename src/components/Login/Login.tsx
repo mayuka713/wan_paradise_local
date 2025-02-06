@@ -15,16 +15,16 @@ function Login(): JSX.Element {
       const response = await fetch(`${process.env.REACT_APP_BASE_URL}/auth/login`, {
         method: "POST",
         credentials: 'include',
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-      if (response.ok) {
+      
+ 
         const data = await response.json();
-        setErrorMessage("");
+        if (response.ok) {
         navigate("/top");
       } else {
+        
         setErrorMessage("メールアドレスまたはパスワードが間違っています。");
       }
     } catch (error) {

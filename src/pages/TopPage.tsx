@@ -80,7 +80,7 @@ const TopPage: React.FC = () => {
         {isMobile ? (
           
           // スマホ用レイアウト
-          <div className="scroll-content">
+        <div className="scroll-content">
           <Button/>
             <Link to="/dogrun" className="fade-in">
               <img src={dogrunNameTag} alt="ドッグランネームタグ" />

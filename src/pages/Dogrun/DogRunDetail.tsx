@@ -43,41 +43,45 @@ const DogRunDetail: React.FC = () => {
   const [store, setStore] = useState<Store | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
-  const [userId, setUserId] = useState<number | null>(0);
+  const [userId, setUserId] = useState<number | null>(null);
   const MAP_API_KEY = process.env.REACT_APP_MAP_API_KEY;
 
   useEffect(() => {
     const userIdFromCookie = getUserIdFromCookie();
-    setUserId(userIdFromCookie); // `number | null` の型で渡す
+    if (userIdFromCookie !== null) {
+      setUserId(userIdFromCookie);
+    }
   }, []);
-
+  
   useEffect(() => {
     const fetchStoreAndReviews = async () => {
       try {
-        // 店舗情報を取得
         const storeResponse = await fetch(`${process.env.REACT_APP_BASE_URL}/stores/detail/${id}`);
         if (!storeResponse.ok) throw new Error("店舗情報の取得に失敗しました");
         const storeData: Store = await storeResponse.json();
-
-        // 口コミ情報を取得
+  
         const reviewResponse = await fetch(`${process.env.REACT_APP_BASE_URL}/reviews`);
         if (!reviewResponse.ok) throw new Error("口コミ情報の取得に失敗しました");
         const reviewData: Review[] = await reviewResponse.json();
-
-        // 店舗に関連付けられた口コミをフィルタリング
+  
         const reviews = reviewData.filter((review) => review.store_id === storeData.store_id);
-
-        // 店舗情報に口コミを追加
         setStore({ ...storeData, reviews });
       } catch (err: any) {
         console.error("データ取得エラー:", err);
+        setError("データの取得に失敗しました。ページを更新してください。");
       }
     };
-
+  
+    if (id) {
+      fetchStoreAndReviews();
+    }
+  }, [id]);
+  
+  useEffect(() => {
     const fetchFavorite = async () => {
+      if (userId === null) return; // 修正ポイント: userId が取得できるまで実行しない
+  
       try {
-        if (!userId) return;
-
         const favoriteResponse = await fetch(`${process.env.REACT_APP_BASE_URL}/favorites/${userId}`);
         if (favoriteResponse.ok) {
           const favoriteData: { store_id: number }[] = await favoriteResponse.json();
@@ -87,12 +91,12 @@ const DogRunDetail: React.FC = () => {
         console.error("お気に入り情報取得エラー:", err);
       }
     };
-
-    if (id) {
-      fetchStoreAndReviews();
-      if (userId) fetchFavorite();
+  
+    if (id && userId !== null) {
+      fetchFavorite();
     }
-  }, [id, userId]);
+  }, [id, userId]); // userId の取得後に fetchFavorite を実行
+  
 
   //----------------------
   const handleFavoriteClick = async () => {

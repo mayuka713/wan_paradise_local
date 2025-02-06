@@ -80,7 +80,7 @@ const HospitalPage: React.FC = () => {
             <Header />
             <div className="hospital-page-container">
                 <p onClick={handleClick} className="search-hospital">
-                    全国の動物病院を探す
+                    全国の動物病院を探す→
                 </p>
                 <div>
                     <img src={HospitalImage} alt="動物病院のイラスト" className="hospitalImage" />

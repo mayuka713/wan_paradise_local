@@ -14,7 +14,7 @@ const HamburgerMenu = () => {
     { label: "ドッグカフェ", link: "/dogcafe" },
     { label: "ペットショップ", link: "/petshop" },
     { label: "動物病院", link: "/hospital" },
-    { label: "お気に入り", link: "/favorites" },
+    { label: "マイページ", link: "/MyPage" },
   ];
 
 

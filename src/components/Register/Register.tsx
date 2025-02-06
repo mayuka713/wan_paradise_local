@@ -37,7 +37,7 @@ function Register(): JSX.Element {
 
       if (response.ok) {
         console.log("登録が完了しました");
-        navigate("/top"); // リダイレクト先のURLを指定
+        navigate("/"); // リダイレクト先のURLを指定
       } else {
         setErrorMessage("登録に失敗しました。");
       }

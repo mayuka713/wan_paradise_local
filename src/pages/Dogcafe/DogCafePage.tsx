@@ -81,7 +81,7 @@ const DogCafePage: React.FC = () => {
       <Header />
       <div className="dogcafe-page-container">
         <p onClick={handleClick} className="search-dogcafe">
-          全国のドッグカフェを探す
+          全国のドッグカフェを探す→
         </p>
         <div>
           <img src={dogcafeImage} alt="ドッグカフェのイラスト" className="dogcafeImage" />

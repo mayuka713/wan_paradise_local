@@ -81,7 +81,7 @@ const DogRunPage: React.FC = () => {
       <Header />
       <div className="dogrun-page-container">
         <p onClick={handleClick} className="search-dogrun">
-          全国のドッグランを探す
+          全国のドッグランを探す→
         </p>
         <div>
           <img src={DogrunImage} alt="ドッグランのイラスト" className="dogrun-image" />

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import Header from "./pages/Header"; // Header が components フォルダにある場合
-import Footer from "./pages/Footer"; // Footer が components フォルダにある場合
-import ImageSlider from "./ImageSlider"; // ImageSlider が components フォルダにある場合
+import Header from "./pages/Header";
+import Footer from "./pages/Footer";
+import ImageSlider from "./ImageSlider";
 
 interface Store {
   store_id: number;
@@ -24,76 +24,87 @@ interface Review {
   comment: string;
 }
 
+// クッキーから user_id を取得する関数
 const getUserIdFromCookie = (): number | null => {
-  const cookies = document.cookie.split("; "); // クッキーを分割
+  const cookies = document.cookie.split("; ");
+  console.log("現在のクッキー:", cookies); // デバッグ用ログ
   for (let cookie of cookies) {
-    const [name, value] = cookie.split("="); // クッキー名と値を分割
-    if (name === "user_id") {
-      const parsedValue = parseInt(decodeURIComponent(value), 10); // URIデコードしてから数値に変換
-      return isNaN(parsedValue) ? null : parsedValue; // NaNの場合はnullを返す
+    const [name, value] = cookie.split("=");
+    if (name.trim() === "user_id") {
+      try {
+        const parsedValue = parseInt(decodeURIComponent(value), 10);
+        console.log("解析された userId:", parsedValue); // デバッグ用ログ
+        return isNaN(parsedValue) ? null : parsedValue;
+      } catch (error) {
+        console.error("user_id の解析エラー:", error);
+        return null;
+      }
     }
   }
-  return null; // 該当するクッキーが存在しない場合
+  console.warn("user_id がクッキーに存在しません");
+  return null;
 };
-
 
 const DogRunDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [store, setStore] = useState<Store | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
-  const [userId, setUserId] = useState<number | null>(0);
+  const [userId, setUserId] = useState<number | null>(null);
   const MAP_API_KEY = process.env.REACT_APP_MAP_API_KEY;
 
+  // クッキーから user_id を取得
   useEffect(() => {
     const userIdFromCookie = getUserIdFromCookie();
-    setUserId(userIdFromCookie); // `number | null` の型で渡す
+    setUserId(userIdFromCookie);
   }, []);
 
+  // 店舗情報と口コミを取得
   useEffect(() => {
     const fetchStoreAndReviews = async () => {
       try {
-        // 店舗情報を取得
         const storeResponse = await fetch(`http://localhost:5003/stores/detail/${id}`);
         if (!storeResponse.ok) throw new Error("店舗情報の取得に失敗しました");
         const storeData: Store = await storeResponse.json();
 
-        // 口コミ情報を取得
         const reviewResponse = await fetch(`http://localhost:5003/reviews`);
         if (!reviewResponse.ok) throw new Error("口コミ情報の取得に失敗しました");
         const reviewData: Review[] = await reviewResponse.json();
 
-        // 店舗に関連付けられた口コミをフィルタリング
         const reviews = reviewData.filter((review) => review.store_id === storeData.store_id);
-
-        // 店舗情報に口コミを追加
         setStore({ ...storeData, reviews });
-      } catch (err: any) {
+      } catch (err) {
         console.error("データ取得エラー:", err);
+        setError("データの取得に失敗しました");
       }
     };
 
-    const fetchFavorite = async () => {
-      try {
-        if (!userId) return;
+    if (id) fetchStoreAndReviews();
+  }, [id]);
 
-        const favoriteResponse = await fetch(`http://localhost:5003/favorites/${userId}`);
-        if (favoriteResponse.ok) {
-          const favoriteData: { store_id: number }[] = await favoriteResponse.json();
-          setIsFavorite(favoriteData.some((fav) => fav.store_id === Number(id)));
+  // お気に入り情報を取得
+  useEffect(() => {
+    if (userId) {
+      const fetchFavorite = async () => {
+        try {
+          const favoriteResponse = await fetch(`http://localhost:5003/favorites/${userId}`, {
+            method: "GET",
+            credentials: "include", // クッキーを送信
+          });
+          if (favoriteResponse.ok) {
+            const favoriteData: { store_id: number }[] = await favoriteResponse.json();
+            setIsFavorite(favoriteData.some((fav) => fav.store_id === Number(id)));
+          }
+        } catch (err) {
+          console.error("お気に入り情報取得エラー:", err);
         }
-      } catch (err: any) {
-        console.error("お気に入り情報取得エラー:", err);
-      }
-    };
+      };
 
-    if (id) {
-      fetchStoreAndReviews();
-      if (userId) fetchFavorite();
+      fetchFavorite();
     }
-  }, [id, userId]);
+  }, [userId, id]);
 
-  //----------------------
+  // お気に入り登録・解除
   const handleFavoriteClick = async () => {
     if (!store || userId === null) return;
 
@@ -123,8 +134,7 @@ const DogRunDetail: React.FC = () => {
   // 平均評価の計算
   const averageRating =
     store.reviews && store.reviews.length > 0
-      ? store.reviews.reduce((sum, rev) => sum + rev.rating, 0) /
-      store.reviews.length
+      ? store.reviews.reduce((sum, rev) => sum + rev.rating, 0) / store.reviews.length
       : 0;
 
   return (
@@ -138,10 +148,7 @@ const DogRunDetail: React.FC = () => {
           <p>画像がありません</p>
         )}
         {store.reviews && store.reviews.length > 0 && (
-          <Link
-            to={`/dogrun/reviews/${store.store_id}`}
-            className="review-button-detail"
-          >
+          <Link to={`/dogrun/reviews/${store.store_id}`} className="review-button-detail">
             口コミを見る
           </Link>
         )}
@@ -154,21 +161,19 @@ const DogRunDetail: React.FC = () => {
                 {[1, 2, 3, 4, 5].map((value) => (
                   <span
                     key={value}
-                    className={`star ${value <= Math.round(averageRating) ? "selected" : ""
-                      }`}
+                    className={`star ${value <= Math.round(averageRating) ? "selected" : ""}`}
                   >
                     ★
                   </span>
                 ))}
               </div>
-              <p style={{ fontSize: "14px", fontWeight: "bold" }}>
-                {averageRating.toFixed(1)}
-              </p>
+              <p style={{ fontSize: "14px", fontWeight: "bold" }}>{averageRating.toFixed(1)}</p>
             </>
           ) : (
             <p>まだ口コミはありません</p>
           )}
         </div>
+
         {/* 店舗情報 */}
         <p>
           <strong>住所: </strong>
@@ -192,7 +197,6 @@ const DogRunDetail: React.FC = () => {
         <p>電話番号: {store.store_phone_number}</p>
         <p>営業時間: {store.store_opening_hours}</p>
 
-        <br />
         {/* お気に入りボタン */}
         <button
           onClick={handleFavoriteClick}

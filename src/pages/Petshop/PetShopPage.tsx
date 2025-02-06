@@ -81,7 +81,7 @@ const PetshopPage: React.FC = () => {
       <Header />
       <div className="petshop-page-container">
         <p onClick={handleClick} className="search-petshop">
-          全国のペットショップを探す
+          全国のペットショップを探す→
         </p>
         <div>
           <img src={PetshopImage} alt="ペットショップのイラスト" className="petshop-image" />

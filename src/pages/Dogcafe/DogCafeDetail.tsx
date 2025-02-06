@@ -23,6 +23,7 @@ interface Review {
   store_id: number;
   rating: number;
   comment: string;
+  reviews: Review[];
 }
 
 const getUserIdFromCookie = (): number | null => {
@@ -45,33 +46,50 @@ const DogCafeDetail: React.FC = () => {
   const [userId, setUserId] = useState<number | null>(null);
   const MAP_API_KEY = process.env.REACT_APP_MAP_API_KEY;
 
+  // クッキーの内容を確認するログ用の useEffect
   useEffect(() => {
-    const userIdFromCookie = getUserIdFromCookie();
-    setUserId(userIdFromCookie);
+    console.log("現在のクッキー:", document.cookie);
   }, []);
 
+  
   useEffect(() => {
-    const fetchStoreAndFavorite = async () => {
+    const userIdFromCookie = getUserIdFromCookie();
+    if (userIdFromCookie !== null) {
+      setUserId(userIdFromCookie);
+    }
+  }, []);
+  
+  useEffect(() => {
+    const fetchStoreDetails = async () => {
       try {
-        // 店舗情報の取得
         const storeResponse = await fetch(
           `${process.env.REACT_APP_BASE_URL}/stores/detail/${id}`
         );
         if (!storeResponse.ok) throw new Error("店舗情報の取得に失敗しました");
         const storeData: Store = await storeResponse.json();
-
-        // 口コミの取得と結び付け
-        const reviewResponse = await fetch(`${process.env.REACT_APP_BASE_URL}/reviews`);
+  
+        const reviewResponse = await fetch(
+          `${process.env.REACT_APP_BASE_URL}/reviews`
+        );
         if (!reviewResponse.ok) throw new Error("口コミの取得に失敗しました");
         const reviewData: Review[] = await reviewResponse.json();
+  
         const reviews = reviewData.filter(
           (review) => review.store_id === storeData.store_id
         );
-
         setStore({ ...storeData, reviews });
-
-        // お気に入り情報の取得
-        if (userId) {
+      } catch (err) {
+        console.error("店舗情報の取得中にエラー:", err);
+      }
+    };
+  
+    if (id) fetchStoreDetails();
+  }, [id]);
+  
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      if (userId) {
+        try {
           const favoriteResponse = await fetch(
             `${process.env.REACT_APP_BASE_URL}/favorites/${userId}`
           );
@@ -82,18 +100,29 @@ const DogCafeDetail: React.FC = () => {
               favoriteData.some((fav) => fav.store_id === Number(id))
             );
           }
+        } catch (err) {
+          console.error("お気に入り取得中にエラー:", err);
         }
-      } catch (err: any) {
-        console.error("データ取得中にエラー:", err);
       }
     };
-
-    if (id) fetchStoreAndFavorite();
-  }, [id, userId]);
+  
+    fetchFavorites();
+  }, [userId, id]);
+  
 
   const handleFavoriteClick = async () => {
-    if (!store || userId === null) return;
+    if (!store || userId === null) {
+      console.log("userId:", userId, "store:", store);
 
+      return;
+    }
+
+    console.log("お気に入りボタンがクリックされました:", {
+      userId,
+      storeId: store.store_id,
+    });
+
+    // リクエストを送信する処理
     const url = `${process.env.REACT_APP_BASE_URL}/favorites`;
     const method = isFavorite ? "DELETE" : "POST";
     const body = JSON.stringify({
@@ -109,15 +138,15 @@ const DogCafeDetail: React.FC = () => {
       });
       if (!response.ok) throw new Error("お気に入りの更新に失敗しました");
 
-      setIsFavorite(!isFavorite); // お気に入り状態をトグル
+      setIsFavorite(!isFavorite);
     } catch (err) {
       console.error("お気に入り更新エラー:", err);
-      setError("お気に入りの更新に失敗しました");
     }
   };
 
   if (error) return <div className="container">{error}</div>;
-  if (!store) return <div className="container">データを読み込んでいます..</div>;
+  if (!store)
+    return <div className="container">データを読み込んでいます..</div>;
 
   const averageRating =
     store.reviews && store.reviews.length > 0
@@ -194,7 +223,7 @@ const DogCafeDetail: React.FC = () => {
         >
           {isFavorite ? "お気に入り解除" : "お気に入り登録"}
         </button>
-      <br/>
+        <br />
         <a
           href={store.store_url}
           target="_blank"

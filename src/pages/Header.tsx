@@ -15,8 +15,7 @@ const Header: React.FC = () => {
           <Link to="/dogcafe">ドッグカフェ</Link>
           <Link to="/petshop">ペットショップ</Link>
           <Link to="/hospital">動物病院</Link>
-          <Link to="/favorites">お気に入り</Link>
-          <Link to="/favorites">マイページ</Link>
+          <Link to="/MyPage">マイページ</Link>
         </nav>
       </header>
       </>

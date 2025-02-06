@@ -122,12 +122,13 @@ const PetShopReviewList: React.FC = () => {
       {reviews.map((review) => (
         <div key={review.id} className="review-card">
           <p className="review-rating">
-  
-            {[1, 2, 3, 4, 5].map ((value) => (
-              <span key= {value} className= {`star ${value <= review.rating ? "selected" : ""}`}
-              >
-                ★
-              </span>
+          {[1, 2, 3, 4, 5].map((value) => (
+        <span
+            key={value}
+            className={`star ${value <= Math.round(averageRating) ? "selected" : "unselected"}`}
+        >
+            ★
+        </span>
               
             ))}
         <strong>{review.rating}.0</strong> 

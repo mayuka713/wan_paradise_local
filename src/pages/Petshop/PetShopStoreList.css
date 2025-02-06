@@ -48,8 +48,9 @@
 }
 
 .petshop-tag-button.selected {
+  background-color:rgba(0, 0, 0, 0.25);
   color: rgb(0, 0, 0);
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 
@@ -139,6 +140,7 @@
 }
 
 @media (max-width: 480px) {
+
   .store-item {
     width: 90%;
     margin: 10px auto;

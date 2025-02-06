@@ -134,7 +134,7 @@ const averageRating =
   return (
     <>
     <Header/>
-    <div className="detail-container">
+    <div className="petshop-detail-container">
       <h1 className="review-button-title">{store.store_name}</h1>
       {store.store_img.length > 0 ? (
         <ImageSlider images={store.store_img} />

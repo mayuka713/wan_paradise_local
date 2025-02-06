@@ -89,10 +89,11 @@
 
 
 @media (max-width: 480px) {
-  .detail-container {
+  .hospital-container {
     max-width: 100%;
     padding: 35px;
     text-align: center;
+    margin-top: 20px;
   }
 
   .detail-title {

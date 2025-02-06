@@ -98,10 +98,11 @@
 
 
 @media (max-width: 480px) {
-  .detail-container {
+  .petshop-detail-container{
     max-width: 100%;
     padding: 15px;
     text-align: center;
+    margin-top: 50px;
   }
 
   .detail-title {

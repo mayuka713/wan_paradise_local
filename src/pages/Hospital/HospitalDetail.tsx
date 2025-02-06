@@ -179,7 +179,7 @@ const HospitalDetail: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="detail-container">
+      <div className="hospital-detail-container">
         <h1 className="detail-title">{store.store_name}</h1>
         {store.store_img.length > 0 ? (
           <ImageSlider images={store.store_img} />

@@ -27,16 +27,19 @@ interface Review {
 
 //ブラウザのクッキーに保存されているuserIdという値を取り出す
 const getUserIdFromCookie = (): number | null => {
-  const cookies = document.cookie.split("; ");
-  for (let cookie of cookies) {
+  const cookies = document.cookie.split("; ").reduce((acc, cookie) => {
     const [name, value] = cookie.split("=");
-    if (name === "user_id") {
-      const parsedValue = parseInt(decodeURIComponent(value), 10);
-      return isNaN(parsedValue) ? null : parsedValue;
-    }
+    acc[name] = value;
+    return acc;
+  }, {} as Record<string, string>);
+
+  if (cookies["user_id"]) {
+    const parsedValue = parseInt(decodeURIComponent(cookies["user_id"]), 10);
+    return isNaN(parsedValue) ? null : parsedValue;
   }
   return null;
 };
+
 
 
 const PetShopDetail: React.FC = () => {

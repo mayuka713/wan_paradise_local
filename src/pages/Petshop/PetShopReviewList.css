@@ -161,7 +161,7 @@ footer {
   .review-star-background {
     position: absolute;
     top: 0;
-    left: 24px;
+    left: 0;
     color: #ccc;
     z-index: 0;
     white-space: nowrap;

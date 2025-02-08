@@ -23,7 +23,6 @@ interface Review {
   store_id: number;
   rating: number;
   comment: string;
-  reviews: Review[];
 }
 
 const getUserIdFromCookie = (): number | null => {
@@ -60,7 +59,7 @@ const DogCafeDetail: React.FC = () => {
   }, []);
   
   useEffect(() => {
-    const fetchStoreDetails = async () => {
+    const fetchStoreAndReviews = async () => {
       try {
         const storeResponse = await fetch(
           `${process.env.REACT_APP_BASE_URL}/stores/detail/${id}`
@@ -83,7 +82,7 @@ const DogCafeDetail: React.FC = () => {
       }
     };
   
-    if (id) fetchStoreDetails();
+    if (id) fetchStoreAndReviews();
   }, [id]);
   
   useEffect(() => {
@@ -159,6 +158,7 @@ const DogCafeDetail: React.FC = () => {
       <Header />
       <div className="detail-container">
         <h1 className="detail-title">{store.store_name}</h1>
+        <div className="container">
         {store.store_img.length > 0 ? (
           <ImageSlider images={store.store_img} />
         ) : (
@@ -166,18 +166,18 @@ const DogCafeDetail: React.FC = () => {
         )}
         {store.reviews && store.reviews.length > 0 && (
           <Link
-            to={`/dogrun/reviews/${store.store_id}`}
+            to={`/dogcafe/reviews/${store.store_id}`}
             className="review-button-detail"
           >
             口コミを見る
           </Link>
         )}
-
+      </div>
         {/* 平均評価 */}
         <div style={{ margin: "20px 0" }}>
           {store.reviews && store.reviews.length > 0 ? (
             <>
-              <div style={{ fontSize: "24px", color: "gray" }}>
+              <div style={{ fontSize: "20px", color: "gray" }}>
                 {[1, 2, 3, 4, 5].map((value) => (
                   <span
                     key={value}
@@ -189,7 +189,7 @@ const DogCafeDetail: React.FC = () => {
                   </span>
                 ))}
               </div>
-              <p style={{ fontSize: "14px", fontWeight: "bold" }}>
+              <p style={{ fontSize: "20px", fontWeight: "bold" }}>
                 {averageRating.toFixed(1)}
               </p>
             </>
@@ -221,7 +221,7 @@ const DogCafeDetail: React.FC = () => {
           onClick={handleFavoriteClick}
           className={`favorite-button ${isFavorite ? "active" : ""}`}
         >
-          {isFavorite ? "お気に入り解除" : "お気に入り登録"}
+          {isFavorite ? "お気に入り" : "お気に入り"}
         </button>
         <br />
         <a

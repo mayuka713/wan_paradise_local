@@ -35,6 +35,7 @@ const FavoritePage: React.FC = () => {
       if (name === "user_id") {
         const parsedValue = parseInt(decodeURIComponent(value), 10); // URIデコードしてから数値に変換
         return isNaN(parsedValue) ? null : parsedValue; // NaNの場合はnullを返す
+        console.log(user_id);
       }
     }
     return null; // 該当するクッキーが存在しない場合

@@ -1,4 +1,8 @@
-
+.content {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+}
 .region-list-title {
   font-size: 24px;
   font-weight: bold;

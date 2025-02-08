@@ -14,8 +14,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Button from "../components/Button";
 
+
 const TopPage: React.FC = () => {
-  const [showText, setShowText] = useState(false);
+
   const [isMobile, setIsMobile] = useState(false);
   const [ showTitle, setShowTitle ] = useState(false);
   const [showScroll, setShowScroll] = useState(false);

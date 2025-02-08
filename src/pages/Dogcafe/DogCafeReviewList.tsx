@@ -106,21 +106,23 @@ const DogCafeReviewList: React.FC = () => {
     <>
       <Header />
       <div className="review-container">
-        <h1 className="store-name">{storeName || "店舗名を取得中..."}</h1>
+        <h1 className="store-name-review">{storeName || "店舗名を取得中..."}</h1>
 
-        <div className="star-container">
-          <div className="stars-background">★★★★★</div>
+        <div className="review-star-container">
+          <div className="review-star-background">★★★★★</div>
           <div
-            className="stars-filled"
-            style={{ width: `${(Math.min(averageRating, 5) / 5) * 100}%` }}
+            className="review-star-filled"
+            style={{ 
+              width: `${(averageRating / 5) * 100}%`,
+            }}
           >
             ★★★★★
           </div>
         </div>
         <span className="average-rating-value">{averageRating.toFixed(1)}</span>
 
-        <h2 className="review-title">口コミ一覧</h2>
-        <button onClick={() => openModal(storeName)} className="review-button">
+        <h2 className="review-title">{storeName}口コミ一覧</h2>
+        <button onClick={() => openModal(storeName)} className="click-review-button">
           投稿
         </button>
 

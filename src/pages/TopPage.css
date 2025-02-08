@@ -210,7 +210,7 @@
   }
 
   .fade-in:nth-child(2) {
-    transition-delay: 0.2s;
+    transition-delay: 0.4s;
     /* ドッグカフェ */
   }
 
@@ -220,7 +220,7 @@
   }
 
   .fade-in:nth-child(4) {
-    transition-delay: 0.3s;
+    transition-delay: 0.8s;
     /* 病院 */
   }
 

@@ -1,10 +1,9 @@
 .detail-container {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 800px;  /* 最大幅を指定 */
+  margin: 0 auto;    /* 中央配置 */
   padding: 20px;
   border-radius: 8px;
 }
-
 .detail-title {
   text-align: center;
   font-size: 24px;
@@ -13,14 +12,11 @@
   margin-bottom: 15px;
 }
 
-
-/* 店舗画像のスタイル */
 .container img {
   width: 100%;
   margin: 10px 0;
 }
 
-/* Google Map埋め込みスタイル */
 .container iframe {
   width: 100%;
   height: 300px;
@@ -29,7 +25,7 @@
   margin: 20px 0;
 }
 
-/* テキスト情報のスタイル */
+
 .container p {
   margin: 10px 0;
   color: #555;
@@ -40,28 +36,24 @@
   font-weight: bold;
   color: #333;
 }
-
 .favorite-button {
-  padding: 30px 20px;
+  padding: 15px 20px;
   font-size: 14px;
-  border: none;
-  background-color: #f4932b;
+  border: solid 1px #d2d2d2;
+  background-color: #ffffff;
   border-radius: 5px;
   cursor: pointer;
   margin: 10px 0;
   transition: background-color 0.3s;
 }
-
 .favorite-button.active {
   background-color: #fffc49;
 }
 
-
-/* 星のスタイル */
 .star {
-  font-size: 24px;
-  color: gray;
-  margin: 0 2px;
+  font-size: 24px; 
+  color: gray; 
+  margin: 0 2px; 
   display: inline-block;
   transition: color 0.3s ease;
 }
@@ -70,44 +62,50 @@
   color: gold;
 }
 
-
-/* 口コミリンク */
-.review-button-detail {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 13px;
-  color: #000;
+  flex-direction: column;
+}
+
+.review-button-detail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #000; 
   background-color: #fff;
-  border: 1px solid #000;
-  border-radius: 5px;
+  border: 1px solid #000; 
+  border-radius: 5px; 
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  margin-top: 30px;
+  margin-top: 20px;
   font-weight: bold;
+  width: 120px;
   padding: 13px 30px;
-  box-sizing: border-box;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .review-button:hover {
   background-color: #f0f0f0;
-  transform: scale(1.05);
+  transform: scale(1.05); 
 }
-
 .container .link:hover {
   background-color: #aaa;
 }
 
+/* 店舗公式サイトリンク */
 .official-site {
   color: black;
 }
-
 .container a:hover {
   background-color: #f0f0f0;
   transform: scale(1.05);
 }
 
-
+/* スライダー全体 */
 .image-slider {
   position: relative;
   width: 100%;
@@ -117,7 +115,6 @@
   justify-content: center;
   align-items: center;
 }
-
 /* 各スライド */
 .slide {
   position: absolute;
@@ -134,15 +131,13 @@
   opacity: 1;
   z-index: 1;
 }
-
 @media (max-width: 480px) {
   .detail-container {
     max-width: 100%;
     padding: 15px;
     text-align: center;
   }
-
-  .detail-title {
+  .detail-title{
     font-size: 20px;
     margin-top: 80px;
   }
@@ -156,15 +151,7 @@
     font-size: 14px;
     padding: 8px;
   }
-
-  iframe {
-    height: 250px;
-  }
-
-  .review-button-detail {
-    width: 40%;
-    height: 40px;
-    font-size: 11px;
-    height: 40px;
-  }
+ iframe {
+  height: 250px;
+ }
 }

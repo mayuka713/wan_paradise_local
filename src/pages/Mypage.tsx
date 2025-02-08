@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import "../pages/mypage.css";
@@ -12,10 +12,29 @@ const MyPage: React.FC = () => {
   const [formEmail, setFormEmail] = useState(email);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const  navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/auth/logout`, {
+        method: "POST",
+        credentials: "include",
+      });
+      if (!response.ok) {
+        throw new Error("ログアウトに失敗しました");
+      }
+      console.log("ログアウト成功");
+      navigate("/"); // ログインページに遷移
+    } catch (error) {
+      console.log("ログアウトエラー", error);
+    }
+  };
+
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch("http://localhost:5003/auth/me", {
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/auth/me`, {
           method: "GET",
           credentials: "include",
         });
@@ -32,10 +51,11 @@ const MyPage: React.FC = () => {
     
     fetchUser();
   }, []);
+  
 
   const handleSave = async () => {
     try {
-      const response = await fetch("http://localhost:5003/profile", {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/profile`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -105,7 +125,9 @@ const MyPage: React.FC = () => {
           </label>
           <button type="submit">保存</button>
         </form>
-
+        <div className="logout-container">
+        <button type="button" onClick={handleLogout} className="logout-button">ログアウト</button>
+        </div>
         {isModalOpen && (
           <div className="modal">
             <div className="modal-content">

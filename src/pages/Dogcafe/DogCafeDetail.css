@@ -62,8 +62,17 @@
   color: gold;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .review-button-detail{
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 15px;
   color: #000; 
   background-color: #fff;
@@ -71,10 +80,12 @@
   border-radius: 5px; 
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  margin-top: 30px;
+  margin-top: 20px;
   font-weight: bold;
-  width: 25%;
+  width: 120px;
   padding: 13px 30px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .review-button:hover {

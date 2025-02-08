@@ -31,7 +31,7 @@ const DogRunReviewList: React.FC = () => {
 
     const fetchReviews = async () => {
       try {
-        const response = await fetch(`http://localhost:5003/reviews/${storeId}`);
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/reviews/${storeId}`);
         if (!response.ok) throw new Error("口コミの取得に失敗しました");
 
         const data: Review[] = await response.json();
@@ -58,7 +58,7 @@ const DogRunReviewList: React.FC = () => {
     const fetchStoreName = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5003/stores/store-name/${storeId}`
+          `${process.env.REACT_APP_BASE_URL}/stores/store-name/${storeId}`
         );
         if (!response.ok) throw new Error("店舗情報の取得に失敗しました");
 
@@ -77,7 +77,7 @@ const DogRunReviewList: React.FC = () => {
   // 口コミを投稿する関数
   const handleReviewSubmit = async (rating: number, comment: string) => {
     try {
-      const response = await fetch("http://localhost:5003/reviews", {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/reviews`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({
@@ -135,7 +135,6 @@ const DogRunReviewList: React.FC = () => {
           投稿
         </button>
 
-        {error && <p className="error-message">{error}</p>}
         {/* レビューリストの表示 */}
         {reviews.map((review) => (
           <div key={review.id} className="review-card">

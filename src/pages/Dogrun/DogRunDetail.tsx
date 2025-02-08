@@ -48,9 +48,7 @@ const DogRunDetail: React.FC = () => {
 
   useEffect(() => {
     const userIdFromCookie = getUserIdFromCookie();
-    if (userIdFromCookie !== null) {
       setUserId(userIdFromCookie);
-    }
   }, []);
   
   useEffect(() => {
@@ -78,7 +76,7 @@ const DogRunDetail: React.FC = () => {
   }, [id]);
   
   useEffect(() => {
-    const fetchFavorite = async () => {
+    const fetchFavorites = async () => {
       if (userId === null) return; // 修正ポイント: userId が取得できるまで実行しない
   
       try {
@@ -93,7 +91,7 @@ const DogRunDetail: React.FC = () => {
     };
   
     if (id && userId !== null) {
-      fetchFavorite();
+      fetchFavorites();
     }
   }, [id, userId]); // userId の取得後に fetchFavorite を実行
   
@@ -137,6 +135,7 @@ const DogRunDetail: React.FC = () => {
       <Header />
       <div className="detail-container">
         <h1 className="detail-title">{store.store_name}</h1>
+        <div className="container">
         {store.store_img.length > 0 ? (
           <ImageSlider images={store.store_img} />
         ) : (
@@ -150,7 +149,7 @@ const DogRunDetail: React.FC = () => {
             口コミを見る
           </Link>
         )}
-
+      </div>
         {/* 平均評価を星で表示 */}
         <div style={{ margin: "20px 0" }}>
           {store.reviews && store.reviews.length > 0 ? (
@@ -166,7 +165,7 @@ const DogRunDetail: React.FC = () => {
                   </span>
                 ))}
               </div>
-              <p style={{ fontSize: "14px", fontWeight: "bold" }}>
+              <p style={{ fontSize: "20px", fontWeight: "bold" }}>
                 {averageRating.toFixed(1)}
               </p>
             </>
@@ -196,8 +195,7 @@ const DogRunDetail: React.FC = () => {
         )}
         <p>電話番号: {store.store_phone_number}</p>
         <p>営業時間: {store.store_opening_hours}</p>
-
-        <br />
+        
         {/* お気に入りボタン */}
         <button
           onClick={handleFavoriteClick}

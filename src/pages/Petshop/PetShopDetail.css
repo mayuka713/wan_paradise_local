@@ -1,16 +1,9 @@
 .detail-container {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 800px;  /* 最大幅を指定 */
+  margin: 0 auto;    /* 中央配置 */
   padding: 20px;
   border-radius: 8px;
-  text-align: center;
 }
-
-.review-button-title {
-  font-size: 25px;
-}
-
-
 .detail-title {
   text-align: center;
   font-size: 24px;
@@ -18,8 +11,6 @@
   color: #333;
   margin-bottom: 15px;
 }
-
-
 
 .container img {
   width: 100%;
@@ -45,27 +36,24 @@
   font-weight: bold;
   color: #333;
 }
-
 .favorite-button {
-  padding: 10px 20px;
+  padding: 15px 20px;
   font-size: 14px;
-  border: none;
-  background-color: #f4932b;
+  border: solid 1px #d2d2d2;
+  background-color: #ffffff;
   border-radius: 5px;
   cursor: pointer;
   margin: 10px 0;
   transition: background-color 0.3s;
 }
-
 .favorite-button.active {
   background-color: #fffc49;
 }
 
-
 .star {
-  font-size: 24px;
-  color: gray;
-  margin: 0 2px;
+  font-size: 24px; 
+  color: gray; 
+  margin: 0 2px; 
   display: inline-block;
   transition: color 0.3s ease;
 }
@@ -74,38 +62,82 @@
   color: gold;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.review-button-detail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #000; 
+  background-color: #fff;
+  border: 1px solid #000; 
+  border-radius: 5px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+  font-weight: bold;
+  width: 120px;
+  padding: 13px 30px;
+  text-align: center;
+  white-space: nowrap;
+}
 
 .review-button:hover {
   background-color: #f0f0f0;
-  transform: scale(1.05);
+  transform: scale(1.05); 
 }
-
 .container .link:hover {
   background-color: #aaa;
 }
 
-
+/* 店舗公式サイトリンク */
 .official-site {
   color: black;
 }
-
 .container a:hover {
   background-color: #f0f0f0;
   transform: scale(1.05);
 }
 
+/* スライダー全体 */
+.image-slider {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 各スライド */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  opacity: 0;
+  transition: all 1s ease;
+}
 
-
-
+.slide.active {
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+}
 @media (max-width: 480px) {
-  .petshop-detail-container{
+  .detail-container {
     max-width: 100%;
     padding: 15px;
     text-align: center;
-    margin-top: 50px;
   }
-
-  .detail-title {
+  .detail-title{
     font-size: 20px;
     margin-top: 80px;
   }
@@ -119,14 +151,7 @@
     font-size: 14px;
     padding: 8px;
   }
-
-  iframe {
-    height: 250px;
-  }
-
-  .review-button-detail {
-    text-align: center;
-    font-size: 11px;
-    width: 50%;
-  }
+ iframe {
+  height: 250px;
+ }
 }

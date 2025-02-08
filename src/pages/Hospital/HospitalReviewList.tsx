@@ -70,7 +70,7 @@ const HospitalReviewList: React.FC = () => {
   // 口コミを投稿する関数
   const handleReviewSubmit = async (rating: number, comment: string) => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/reviews`, {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/hospital/reviews`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({
@@ -121,7 +121,7 @@ const HospitalReviewList: React.FC = () => {
         </div>
         <span className="average-rating-value">{averageRating.toFixed(1)}</span>
 
-        <h2 className="review-title">口コミ一覧</h2>
+        <h2 className="review-title">{storeName}口コミ一覧</h2>
         <button onClick={() => openModal(storeName)} className="click-review-button">
           投稿
         </button>

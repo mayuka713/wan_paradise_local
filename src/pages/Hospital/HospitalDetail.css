@@ -41,10 +41,10 @@
 }
 
 .favorite-button {
-  padding: 10px 20px;
+  padding: 15px 20px;
   font-size: 14px;
-  border: none;
-  background-color: #f4932b;
+  border: solid 1px #d2d2d2;
+  background-color: #ffffff;
   border-radius: 5px;
   cursor: pointer;
   margin: 10px 0;
@@ -52,7 +52,7 @@
 }
 
 .favorite-button.active {
-  background-color: #fffc49;
+  background-color: #fa0;
 }
 
 
@@ -66,6 +66,32 @@
 
 .star.selected {
   color: gold;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.review-button-detail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #000; 
+  background-color: #fff;
+  border: 1px solid #000; 
+  border-radius: 5px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+  font-weight: bold;
+  width: 120px;
+  padding: 13px 30px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 

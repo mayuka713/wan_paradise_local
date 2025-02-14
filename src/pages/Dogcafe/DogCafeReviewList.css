@@ -59,8 +59,3 @@
   color: gold; /* 選択された星の色 */
   transition: color 0.3s ease; /* スムーズな色変更 */
 }
-
-@media (max-width: 480px) {
-
-  
-}

@@ -36,7 +36,7 @@ const DogRunPage: React.FC = () => {
         }
 
         const data = await response.json();
-        console.log("BASE_URL:", process.env.REACT_APP_BASE_URL);
+    
         
         // データを複製してループを作成
         setStores([...data, ...data]);

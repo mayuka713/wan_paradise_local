@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import "./DogRunStoreList.css";
 import Header from "../Header";
 import Footer from "../Footer";
 import "../Header.css";
+import "./DogRunStoreList.css";
 import ImageSlider from "../../ImageSlider";
-
 
 interface Store {
   store_id: number;
@@ -57,7 +56,6 @@ const DogRunStoreList: React.FC = () => {
         setType2Tag(type2);
         setError(null); // エラーをリセット
       } catch (error) {
-        console.error(error);
         setError("タグ情報の取得に失敗しました");
       }
     };
@@ -72,13 +70,17 @@ const DogRunStoreList: React.FC = () => {
       "27": "大阪",
     };
     setSelectedPrefecture(
-      prefectureNames[prefectureId ?? ""] || "ドッグラン情報がありません");
+      prefectureNames[prefectureId ?? ""] || "ドッグラン情報がありません"
+    );
   }, [prefectureId]);
 
   // タグ選択の処理
   const handleTagClick = (tagId: number) => {
     setSelectedTagIds((prev) =>
-      prev.includes(tagId) ? prev.filter((id) => id !== tagId) : [...prev, tagId]);
+      prev.includes(tagId)
+        ? prev.filter((id) => id !== tagId)
+        : [...prev, tagId]
+    );
   };
 
   // 店舗データの取得
@@ -87,7 +89,9 @@ const DogRunStoreList: React.FC = () => {
       try {
         let url = `http://localhost:5003/stores/list/${prefectureId}/1`;
         if (selectedTagIds.length > 0) {
-          url = `http://localhost:5003/stores/list/tag/${prefectureId}/1?tagIds=${selectedTagIds.join(",")}`;
+          url = `http://localhost:5003/stores/list/tag/${prefectureId}/1?tagIds=${selectedTagIds.join(
+            ","
+          )}`;
         }
         const response = await fetch(url);
         if (!response.ok) {
@@ -103,6 +107,7 @@ const DogRunStoreList: React.FC = () => {
     };
     fetchStores();
   }, [prefectureId, selectedTagIds]);
+
   store.forEach((storeItem) => {
     console.log("取得した店舗情報:", storeItem);
     console.log("口コミデータ:", storeItem.reviews);
@@ -158,11 +163,18 @@ const DogRunStoreList: React.FC = () => {
                   store.map((storeItem) => {
                     const reviews = storeItem.reviews ?? [];
                     // 初期値 0 を指定して NaN を防ぐ
-                    const totalRating = reviews.reduce((sum, review) => sum + (review.rating || 0), 0);
+                    const totalRating = reviews.reduce(
+                      (sum, review) => sum + (review.rating || 0),
+                      0
+                    );
                     // レビューがない場合、平均評価を 0 にする
-                    const averageRating = reviews.length > 0 ? totalRating / reviews.length : 0;
+                    const averageRating =
+                      reviews.length > 0 ? totalRating / reviews.length : 0;
                     console.log("averageRating:", averageRating);
-                    console.log("stars width:", !isNaN(averageRating) ? (averageRating / 5) * 100 : 0);
+                    console.log(
+                      "stars width:",
+                      !isNaN(averageRating) ? (averageRating / 5) * 100 : 0
+                    );
 
                     return (
                       <Link
@@ -170,29 +182,42 @@ const DogRunStoreList: React.FC = () => {
                         className="store-item"
                         key={storeItem.store_id}
                       >
-                        {/* 画像の表示 */}
                         <ImageSlider images={storeItem.store_img} />
 
                         {/* 星評価の表示 */}
                         <div className="star-rating-container">
-                            <div className="stars-background-storelist">★★★★★</div>
-                            <div
-                              className="stars-filled-storelist"
-                              style={{
-                                width: `${(averageRating / 5) * 100}%` 
-                                }}> 
-                              ★★★★★
-                            </div>
+                          <div className="stars-background-storelist">
+                            ★★★★★
+                          </div>
+                          <div
+                            className="stars-filled-storelist"
+                            style={{
+                              width: `${(averageRating / 5) * 100}%`,
+                            }}
+                          >
+                            ★★★★★
+                          </div>
                           <span className="average-rating-value-storelist">
                             {averageRating.toFixed(1)}
                           </span>
                         </div>
-                        <h3 className="store-name-storelist">{storeItem.store_name}</h3>
+                        <h3 className="store-name-storelist">
+                          {storeItem.store_name}
+                        </h3>
                         <p className="store-description">
-                        {storeItem.store_description}</p>
-                        <p><strong>住所: </strong>{storeItem.store_address}</p>
-                        <p><strong>電話: </strong> {storeItem.store_phone_number}</p>
-                        <p><strong>営業時間: </strong>{storeItem.store_opening_hours}</p>
+                          {storeItem.store_description}
+                        </p>
+                        <p>
+                          <strong>住所: </strong>
+                          {storeItem.store_address}
+                        </p>
+                        <p>
+                          <strong>電話: </strong> {storeItem.store_phone_number}
+                        </p>
+                        <p>
+                          <strong>営業時間: </strong>
+                          {storeItem.store_opening_hours}
+                        </p>
                       </Link>
                     );
                   })

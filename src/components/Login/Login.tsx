@@ -2,7 +2,7 @@ import "./Login.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login(): JSX.Element {
+const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,13 +18,11 @@ function Login(): JSX.Element {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-      
- 
-        const data = await response.json();
-        if (response.ok) {
+
+      const data = await response.json();
+      if (response.ok) {
         navigate("/top");
       } else {
-        
         setErrorMessage("メールアドレスまたはパスワードが間違っています。");
       }
     } catch (error) {

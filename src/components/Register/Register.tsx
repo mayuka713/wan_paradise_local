@@ -9,7 +9,6 @@ function Register(): JSX.Element {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
   const navigate = useNavigate(); // useNavigateを初期化
 
   // フォーム送信時の処理
@@ -33,8 +32,7 @@ function Register(): JSX.Element {
         body: JSON.stringify({ name, email, password }),
       });
       const responseData = await response.json();
-      console.log(" サーバーのレスポンス:", responseData); // レスポンスを確認
-
+      
       if (response.ok) {
         console.log("登録が完了しました");
         navigate("/"); // リダイレクト先のURLを指定
@@ -45,6 +43,7 @@ function Register(): JSX.Element {
       setErrorMessage("サーバーエラーが発生しました。");
     }
   };
+
   return (
     <div className="register-container">
       <header className="register">
